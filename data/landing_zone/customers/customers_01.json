@@ -1,0 +1,10 @@
+{"customer_id": 1002, "name": "Lucas Lopez", "address": "5818 Av. Corrientes", "city": "Mendoza", "state": "MZA", "zip_code": "2127", "email": "lucas.lopez@example.com", "timestamp": 1780732800, "operation": "UPDATE"}
+{"customer_id": 1005, "name": "Martina Benitez", "address": "4102 Av. Corrientes", "city": "Cordoba", "state": "CBA", "zip_code": "7054", "email": "martina.benitez@example.com", "timestamp": 1780733460, "operation": "UPDATE"}
+{"customer_id": 1007, "name": "Lucas Fernandez", "address": "4769 Av. Corrientes", "city": "Tucuman", "state": "TUC", "zip_code": "3584", "email": "lucas.fernandez@example.com", "timestamp": 1780734120, "operation": "UPDATE"}
+{"customer_id": 1010, "name": "Sofia Flores", "address": "7279 Av. Corrientes", "city": "Santa Fe", "state": "SF", "zip_code": "9900", "email": "sofia.flores@example.com", "timestamp": 1780734780, "operation": "UPDATE"}
+{"customer_id": 1011, "name": "Nicolas Silva", "address": "5056 Av. Corrientes", "city": "Cordoba", "state": "CBA", "zip_code": "9666", "email": "nicolas.silva@example.com", "timestamp": 1780735440, "operation": "UPDATE"}
+{"customer_id": 1003, "name": null, "address": null, "city": null, "state": null, "zip_code": null, "email": null, "timestamp": 1780737000, "operation": "DELETE"}
+{"customer_id": 1021, "name": "Sofia Alvarez", "address": "2300 Av. Siempre Viva", "city": "CABA", "state": "BA", "zip_code": "5333", "email": "sofia.alvarez@example.com", "timestamp": 1780737600, "operation": "NEW"}
+{"customer_id": 1022, "name": "Lucas Lopez", "address": "2646 Av. Siempre Viva", "city": "Tucuman", "state": "TUC", "zip_code": "5462", "email": "lucas.lopez@example.com", "timestamp": 1780738140, "operation": "NEW"}
+{"customer_id": 1023, "name": "Santiago Perez", "address": "3435 Av. Siempre Viva", "city": "Santa Fe", "state": "SF", "zip_code": "5325", "email": "santiago.perez@example.com", "timestamp": 1780738680, "operation": "NEW"}
+{"customer_id": 1024, "name": "Franco Romero", "address": "1612 Av. Siempre Viva", "city": "CABA", "state": "BA", "zip_code": "7939", "email": "franco.romero@example.com", "timestamp": 1780739220, "operation": "NEW"}

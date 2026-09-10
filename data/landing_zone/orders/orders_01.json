@@ -1,0 +1,6 @@
+{"order_id": 5021, "order_timestamp": "2026-06-05T06:24:00", "customer_id": 1009, "store_region": "Mendoza", "notifications": "N"}
+{"order_id": 5022, "order_timestamp": "2026-06-05T07:40:00", "customer_id": 1010, "store_region": "Mendoza", "notifications": "Y"}
+{"order_id": 5023, "order_timestamp": "2026-06-05T08:23:00", "customer_id": 1011, "store_region": "Mendoza", "notifications": "Y"}
+{"order_id": 5024, "order_timestamp": "2026-06-05T09:42:00", "customer_id": 1000, "store_region": "Mendoza", "notifications": "Y"}
+{"order_id": 5025, "order_timestamp": "2026-06-05T10:38:00", "customer_id": 1001, "store_region": "Cordoba", "notifications": "Y"}
+{"order_id": 5026, "order_timestamp": "2026-06-05T11:10:00", "customer_id": 1002, "store_region": "Rosario", "notifications": "N"}
