@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+.venv-argos-bronze/
+workdir/
+.git/
+.DS_Store

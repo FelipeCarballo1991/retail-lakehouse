@@ -1,0 +1,103 @@
+==============================================================================
+ ARGOS - Comandos Rapidos: Ambiente Docker de Testeo Local (Bronze OCR/PDF)
+ Ejecutar siempre parado en la carpeta del proyecto (donde esta el Dockerfile)
+ Requisito: Docker Desktop abierto y corriendo
+==============================================================================
+
+--------------------------------------------------------------------------
+1) LEVANTAR EL AMBIENTE (uso diario, con Jupyter para trabajar en VS Code)
+--------------------------------------------------------------------------
+docker compose up -d --build
+
+  -> Deja el contenedor corriendo en segundo plano con Jupyter activo.
+  -> Conectar VS Code: Select Kernel > Existing Jupyter Server > http://localhost:8888/
+
+
+--------------------------------------------------------------------------
+2) APAGAR EL AMBIENTE (al terminar de trabajar)
+--------------------------------------------------------------------------
+docker compose down
+
+
+--------------------------------------------------------------------------
+3) VER SI EL CONTENEDOR ESTA CORRIENDO
+--------------------------------------------------------------------------
+docker ps
+
+  -> Deberia listar "python-enviroment" con estado "Up".
+
+
+--------------------------------------------------------------------------
+4) ENTRAR A UNA SHELL INTERACTIVA (probar comandos a mano)
+--------------------------------------------------------------------------
+docker compose run --rm python-enviroment bash
+-> Crea un contenedor NUEVO cada vez. 
+-> Se borra solo si salís con: exit 
+-> ATENCION: si cerrás la terminal sin hacer "exit"
+, el contenedor queda huerfano corriendo (revisar con "docker ps -a").
+
+o tambien se puede ingresar así
+
+docker exec -it python-enviroment bash
+
+-> RECOMENDADO. Requiere que el contenedor ya este corriendo (docker compose up -d --build). 
+-> Se conecta al MISMO contenedor existente, no crea uno nuevo. 
+-> Cerrar la terminal sin "exit" no genera contenedores huerfanos.
+
+
+--------------------------------------------------------------------------
+5) EJECUTAR UN SCRIPT .PY PUNTUAL (sin entrar a la shell)
+--------------------------------------------------------------------------
+docker compose run --rm python-enviroment python mi_script.py
+
+  -> El script debe estar dentro de la carpeta workdir/
+
+
+--------------------------------------------------------------------------
+6) EJECUTAR UN SCRIPT .PY DESDE DENTRO DE LA SHELL
+--------------------------------------------------------------------------
+docker compose run --rm python-enviroment bash
+python mi_script.py
+exit
+
+
+--------------------------------------------------------------------------
+7) VER LOGS DEL CONTENEDOR (ej. para copiar la URL/token de Jupyter)
+--------------------------------------------------------------------------
+docker compose logs python-enviroment
+
+
+--------------------------------------------------------------------------
+8) VERIFICACION RAPIDA DEL AMBIENTE (Python / Tesseract / PyMuPDF)
+--------------------------------------------------------------------------
+docker run --rm python-enviroment:local
+
+
+--------------------------------------------------------------------------
+9) AGREGAR UNA LIBRERIA NUEVA (requiere rebuild)
+--------------------------------------------------------------------------
+  a) Agregar la libreria con version fijada a requirements-local.txt
+  b) docker compose down
+  c) docker compose up -d --build
+
+  Prueba rapida y descartable (sin editar archivos ni rebuildear):
+  docker compose run --rm python-enviroment bash
+  pip install nueva-libreria
+
+
+--------------------------------------------------------------------------
+10) FORZAR RECONSTRUCCION COMPLETA (sin usar cache)
+--------------------------------------------------------------------------
+docker build -t python-enviroment:local . --no-cache
+
+
+==============================================================================
+ RECORDATORIOS
+==============================================================================
+- Docker Desktop debe estar abierto (icono de ballena estable) antes de
+  correr cualquier comando docker.
+- La carpeta workdir/ se refleja en vivo dentro del contenedor en /workspace:
+  no hace falta rebuild para cambios en PDFs, notebooks o scripts .py.
+- Rebuild (up -d --build) SOLO es necesario si cambia: Dockerfile,
+  requirements-local.txt o verify_env.py.
+==============================================================================

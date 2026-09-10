@@ -1,0 +1,32 @@
+# =============================================================================
+# ARGOS - docker-compose para el ambiente de testeo local Bronze (OCR/PDF)
+#
+# Uso:
+#   docker compose build
+#   docker compose run --rm python-enviroment
+#   docker compose run --rm python-enviroment bash   # para shell interactiva
+#
+# Coloca tus PDFs de prueba dentro de ./workdir - se monta en /workspace
+# dentro del contenedor.
+# =============================================================================
+services:
+  python-enviromente:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: python-enviroment:local
+    container_name: python-enviroment
+    volumes:
+      - ./workdir:/workspace
+    working_dir: /workspace
+    ports:
+      - "8888:8888"
+    tty: true
+    stdin_open: true
+    command: >
+      jupyter notebook
+      --ip=0.0.0.0
+      --port=8888
+      --no-browser
+      --allow-root
+      --NotebookApp.token=''
