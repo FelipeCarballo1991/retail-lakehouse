@@ -1,0 +1,6 @@
+product_id,product_name,price,status
+102,Producto 102,15999.0,update
+105,Producto 105,8999.0,update
+103,Producto 103,,delete
+200,Producto 200 Nuevo,25999.0,new
+201,Producto 201 Nuevo,3999.0,new

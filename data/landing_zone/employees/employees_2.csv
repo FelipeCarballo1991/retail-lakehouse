@@ -1,0 +1,5 @@
+EmployeeID,FirstName,Country,Department,Salary,HireDate,Operation,ProcessDate
+1,,,,,,delete,2025-06-22
+3,Liam,AR,Sales,1000000,2025-05-03,update,2025-06-22
+6,Emily,AR,Enablement,800000,2025-06-09,insert,2025-06-22
+7,Yannis,AR,HR,700000,2025-06-20,insert,2025-06-22
