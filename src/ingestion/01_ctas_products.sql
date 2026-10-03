@@ -1,4 +1,10 @@
 --------------------------------------------------------------------
+-- 00 - Configuración del catálogo
+--------------------------------------------------------------------
+
+USE CATALOG retail_lakehouse;
+
+--------------------------------------------------------------------
 -- 01 - CTAS (CREATE TABLE AS) con read_files()
 -- Ingesta batch, NO incremental. Ideal para una primera carga exploratoria.
 -- Fuente: landing_zone/products (Parquet)
@@ -6,8 +12,9 @@
 
 -- 1) Explorar antes de crear la tabla (buena practica: LIMIT durante desarrollo)
 SELECT * FROM read_files(
-  '${source}/products',
-  format => 'parquet'
+  :source || '/products',
+  format => 'parquet',
+  pathGlobFilter => '*.parquet'
 ) LIMIT 10;
 
 -- 2) Crear la tabla Delta "bronze_products_ctas" de una sola vez
@@ -16,8 +23,9 @@ DROP TABLE IF EXISTS bronze.products_ctas;
 CREATE TABLE bronze.products_ctas
 SELECT *, current_timestamp() AS ingestion_time
 FROM read_files(
-  '${source}/products',
-  format => 'parquet'
+  :source || '/products',
+  format => 'parquet',
+  pathGlobFilter => '*.parquet'
 );
 
 -- 3) Verificar
